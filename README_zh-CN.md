@@ -1,5 +1,7 @@
 # pdf-visualize-translate
 
+[English](README.md) | 简体中文
+
 一个可视化的 PDF AI 翻译工具，专门针对需要保持原 PDF 文本框区域位置并利用 AI 快速进行翻译的需求。
 
 ## Usage

@@ -1,5 +1,7 @@
 # pdf-visualize-translate
 
+English | [简体中文](README_zh.md)
+
 A visual PDF AI translation tool specifically designed for the need to maintain the original PDF text box locations while utilizing AI for rapid translation.
 
 ## Usage
