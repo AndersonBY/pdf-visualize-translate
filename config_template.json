@@ -1,0 +1,13 @@
+{
+    "pdf_path": "./static/original.pdf",
+    "output_json_path": "./translations.json",
+    "translated_pdf_path": "./translated.pdf",
+    "font_name": "思源黑体",
+    "font_file": "./font/SimplifiedChinese/SourceHanSansSC-Normal.otf",
+    "target_language": "zh-CN",
+    "port": 5000,
+    "model_selection": [
+        "Qwen",
+        "qwen2-72b-instruct"
+    ]
+}
