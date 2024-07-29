@@ -4,7 +4,7 @@
 
 ## Usage
 
-从 Release 页面下载最新版本的可执行文件，解压后双击 PDF-Visualize-Translate.ext 运行即可。程序会自动打开一个浏览器窗口 http://127.0.0.1:5000 。
+从 Release 页面下载最新版本的可执行文件，解压后双击 PDF-Visualize-Translate.exe 运行即可。程序会自动打开一个浏览器窗口 http://127.0.0.1:5000 。
 
 ### AI 语言模型配置
 将 llm_credentials_template.json 文件改名为 llm_credentials.json，将你的 AI 语言模型的凭证填入 llm_credentials.json 文件中。

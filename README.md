@@ -4,7 +4,7 @@ A visual PDF AI translation tool specifically designed for the need to maintain 
 
 ## Usage
 
-Download the latest executable file from the Release page, unzip it, and double-click `PDF-Visualize-Translate.ext` to run. The program will automatically open a browser window at `http://127.0.0.1:5000`.
+Download the latest executable file from the Release page, unzip it, and double-click `PDF-Visualize-Translate.exe` to run. The program will automatically open a browser window at `http://127.0.0.1:5000`.
 
 ### AI Language Model Configuration
 Rename the `llm_credentials_template.json` file to `llm_credentials.json`, and fill in your AI language model credentials in the `llm_credentials.json` file.
