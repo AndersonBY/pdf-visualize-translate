@@ -1,18 +1,32 @@
 # @Author: Bi Ying
 # @Date:   2024-07-21 22:54:26
 import re
+import os
 import io
 import json
+import mimetypes
 import webbrowser
 from pathlib import Path
 from copy import deepcopy
 
 import pymupdf
 from PIL import Image
-from flask import Flask, render_template, request, jsonify, send_file
+from flask import (
+    Flask,
+    abort,
+    request,
+    jsonify,
+    send_file,
+    render_template,
+    send_from_directory,
+)
 
 from vectorvein.settings import settings
 from vectorvein.chat_clients import create_chat_client
+
+
+mimetypes.add_type("application/javascript", ".js")
+mimetypes.add_type("application/javascript", ".mjs")
 
 app = Flask(__name__)
 
@@ -368,6 +382,13 @@ class PDFTranslator:
 translator = None
 
 
+def get_pdf_folder():
+    if os.environ.get("PDF_VISUALIZE_TRANSLATE_DEBUG", "0") == "1":
+        return Path(__file__).parent / "pdf"
+    else:
+        return Path(__file__).parent.parent / "pdf"
+
+
 @app.route("/")
 def index():
     return render_template("index.html")
@@ -491,6 +512,17 @@ def preview_page():
         as_attachment=True,
         download_name=f"preview_page_{page_num}.png",
     )
+
+
+@app.route("/pdf/<path:filename>")
+def serve_pdf(filename):
+    print(filename)
+    pdf_folder = get_pdf_folder()
+    print(pdf_folder)
+    try:
+        return send_from_directory(pdf_folder, filename, mimetype="application/pdf")
+    except FileNotFoundError:
+        abort(404)
 
 
 if __name__ == "__main__":

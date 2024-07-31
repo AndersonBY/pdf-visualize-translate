@@ -2,7 +2,7 @@
  * @Author: Bi Ying
  * @Date:   2024-07-22 22:59:16
  * @Last Modified by:   Bi Ying
- * @Last Modified time: 2024-07-29 12:06:29
+ * @Last Modified time: 2024-07-31 18:32:36
  */
 import { fileURLToPath, URL } from 'node:url'
 import { defineConfig } from 'vite'
@@ -28,15 +28,15 @@ const defaultConfig = {
       'pdfjs-dist/build/pdf.worker.mjs',
     ],
   },
-  // build: {
-  //   rollupOptions: {
-  //     output: {
-  //       manualChunks: {
-  //         pdfjsWorker: ['pdfjs-dist/build/pdf.worker.min.mjs'],
-  //       },
-  //     },
-  //   },
-  // },
+  build: {
+    rollupOptions: {
+      output: {
+        manualChunks: {
+          pdfjsWorker: ['pdfjs-dist/build/pdf.worker.min.mjs'],
+        },
+      },
+    },
+  },
 }
 
 export default defineConfig(({ command, mode, ssrBuild }) => {
@@ -55,6 +55,11 @@ export default defineConfig(({ command, mode, ssrBuild }) => {
             target: `http://127.0.0.1:5000/static`,
             changeOrigin: true,
             rewrite: (path) => path.replace(/^\/static/, ""),
+          },
+          '/pdf': {
+            target: `http://127.0.0.1:5000/pdf`,
+            changeOrigin: true,
+            rewrite: (path) => path.replace(/^\/pdf/, ""),
           },
         }
       },

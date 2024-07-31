@@ -1,5 +1,5 @@
 {
-    "pdf_path": "./static/original.pdf",
+    "pdf_path": "./pdf/original.pdf",
     "output_json_path": "./translations.json",
     "translated_pdf_path": "./translated.pdf",
     "font_name": "思源黑体",

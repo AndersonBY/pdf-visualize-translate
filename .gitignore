@@ -163,6 +163,7 @@ cython_debug/
 
 archive/
 static/
+pdf/
 .vscode/
 config.json
 llm_credentials.json
