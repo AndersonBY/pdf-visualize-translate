@@ -14,12 +14,13 @@ license = {text = "MIT"}
 name = "pdf-translate"
 readme = "README.md"
 requires-python = ">=3.8"
-version = "0.1.0"
+version = "0.1.1"
 
 [tool.pdm]
 distribution = false
 
 [tool.pdm.scripts]
-build = "pyinstaller main.spec --noconfirm"
+_.env = {PDF_VISUALIZE_TRANSLATE_VERSION = "0.1.1"}
+build = "python build.py -t p"
 start.cmd = "python main.py"
 start.env = {PDF_VISUALIZE_TRANSLATE_DEBUG = "1"}
