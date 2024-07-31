@@ -28,6 +28,8 @@ from vectorvein.chat_clients import create_chat_client
 mimetypes.add_type("application/javascript", ".js")
 mimetypes.add_type("application/javascript", ".mjs")
 
+DEBUG = os.environ.get("PDF_VISUALIZE_TRANSLATE_DEBUG", "0") == "1"
+
 app = Flask(__name__)
 
 llm_credentials_file = Path("llm_credentials.json")
@@ -383,7 +385,7 @@ translator = None
 
 
 def get_pdf_folder():
-    if os.environ.get("PDF_VISUALIZE_TRANSLATE_DEBUG", "0") == "1":
+    if DEBUG:
         return Path(__file__).parent / "pdf"
     else:
         return Path(__file__).parent.parent / "pdf"
@@ -527,4 +529,4 @@ def serve_pdf(filename):
 
 if __name__ == "__main__":
     webbrowser.open(f"http://127.0.0.1:{port}")
-    app.run(debug=True, port=port)
+    app.run(debug=DEBUG, port=port)
