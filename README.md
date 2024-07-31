@@ -17,19 +17,19 @@ After opening the browser window, you will enter the configuration page (refresh
 ![config](./resource/images/config.jpg)
 
 #### PDF Path
-Please place the PDF file you need to translate in the `static` folder, and then enter the relative path `./static/your-pdf-file.pdf` in the PDF Path text box on the page.
+Please place the PDF file you need to translate in the `pdf` folder, and then enter the relative path `./pdf/your-pdf-file.pdf` in the PDF Path text box on the page.
 
 #### Output JSON Path
-This is the file path for storing the translation results in JSON format. It can be any path, and it does not necessarily have to be in the `static` folder.
+This is the file path for storing the translation results in JSON format. It can be any path, and it does not necessarily have to be in the `pdf` folder.
 
 #### Translated PDF Path
-This is the file path for storing the translated PDF file. It can be any path, and it does not necessarily have to be in the `static` folder.
+This is the file path for storing the translated PDF file. It can be any path, and it does not necessarily have to be in the `pdf` folder.
 
 #### Font Name
 The name of the font to be rendered into the translated PDF.
 
 #### Font File
-The file path of the font to be rendered into the translated PDF. It can be any path, and it does not necessarily have to be in the `static` folder. A series of fonts such as `./font/SimplifiedChinese/SourceHanSansSC-Normal.otf` have been prepared in advance.
+The file path of the font to be rendered into the translated PDF. It can be any path, and it does not necessarily have to be in the `pdf` folder. A series of fonts such as `./font/SimplifiedChinese/SourceHanSansSC-Normal.otf` have been prepared in advance.
 
 #### Target Language
 The target language for translation. Generally, as long as the language is supported by the AI model you have chosen, it can be used.

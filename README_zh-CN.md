@@ -17,19 +17,19 @@
 ![config](./resource/images/config.jpg)
 
 #### PDF 路径
-请将需要翻译的 PDF 文件放置在 `static` 文件夹下，然后在页面的 PDF Path 输入框中输入相对路径 `./static/your-pdf-file.pdf`。
+请将需要翻译的 PDF 文件放置在 `pdf` 文件夹下，然后在页面的 PDF Path 输入框中输入相对路径 `./pdf/your-pdf-file.pdf`。
 
 #### Output JSON Path
-这是用于储存翻译结果的 JSON 文件路径，任意路径均可，不一定要放在 `static` 文件夹下。
+这是用于储存翻译结果的 JSON 文件路径，任意路径均可，不一定要放在 `pdf` 文件夹下。
 
 #### Translated PDF Path
-这是用于储存翻译后的 PDF 文件路径，任意路径均可，不一定要放在 `static` 文件夹下。
+这是用于储存翻译后的 PDF 文件路径，任意路径均可，不一定要放在 `pdf` 文件夹下。
 
 #### Font Name
 渲染到翻译后 PDF 里的字体名称。
 
 #### Font File
-渲染到翻译后 PDF 里的字体文件路径，任意路径均可，不一定要放在 `static` 文件夹下。目前提前准备了 `./font/SimplifiedChinese/SourceHanSansSC-Normal.otf` 系列字体。
+渲染到翻译后 PDF 里的字体文件路径，任意路径均可，不一定要放在 `pdf` 文件夹下。目前提前准备了 `./font/SimplifiedChinese/SourceHanSansSC-Normal.otf` 系列字体。
 
 #### Target Language
 目标的翻译语言，一般来说只要你选择的 AI 模型支持的语言都可以。
