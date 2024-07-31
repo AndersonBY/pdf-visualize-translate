@@ -21,4 +21,5 @@ distribution = false
 
 [tool.pdm.scripts]
 build = "pyinstaller main.spec --noconfirm"
-start = "python main.py"
+start.cmd = "python main.py"
+start.env = {PDF_VISUALIZE_TRANSLATE_DEBUG = "1"}
