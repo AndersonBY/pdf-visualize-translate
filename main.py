@@ -22,7 +22,7 @@ from flask import (
 )
 
 from vectorvein.settings import settings
-from vectorvein.chat_clients import create_chat_client
+from vectorvein.chat_clients import create_chat_client, BaseChatClient
 
 
 mimetypes.add_type("application/javascript", ".js")
@@ -171,7 +171,7 @@ class PDFTranslator:
 
         if provider not in self.clients:
             self.clients[provider] = create_chat_client(provider, stream=False)
-        client = self.clients[provider]
+        client: BaseChatClient = self.clients[provider]
 
         book_name = Path(self.pdf_path).stem
         system_prompt = f"你是专业的书籍翻译员，你需要对这本《{book_name}》进行翻译。翻译时务必根据这本书的内容进行翻译，保持信达雅。请根据用户的输入片段直接输出翻译结果，不要解释。"
@@ -187,7 +187,7 @@ class PDFTranslator:
         ]
 
         response = client.create_completion(messages=messages, model=model, temperature=0.2)
-        result = response["content"]
+        result = response.content
         if translation_extract_re.match(result):
             return translation_extract_re.match(result).group(1)
         else:
@@ -471,7 +471,6 @@ def delete_block():
 @app.route("/api/save_translation", methods=["POST"])
 def save_translation():
     data = request.get_json()
-    print(data)
     page_num = int(data["page_num"])
     block_index = int(data["block_index"])
     translation = data["translation"]
@@ -518,9 +517,7 @@ def preview_page():
 
 @app.route("/pdf/<path:filename>")
 def serve_pdf(filename):
-    print(filename)
     pdf_folder = get_pdf_folder()
-    print(pdf_folder)
     try:
         return send_from_directory(pdf_folder, filename, mimetype="application/pdf")
     except FileNotFoundError:
